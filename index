@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvey AI | Enterprise Solutions & Legal Ops Simulator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#111827',
+                        accent: '#6366f1',
+                        accentHover: '#4f46e5'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkBg text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER -->
+    <header class="border-b border-gray-800 bg-cardBg/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-white text-lg shadow-lg shadow-indigo-500/30">
+                    H
+                </div>
+                <div>
+                    <span class="font-bold text-white text-lg tracking-tight">Harvey Enterprise PoC</span>
+                    <span class="hidden sm:inline-block ml-2 text-xs px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800">Legal AI Architecture</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://egarcia-enterprise.github.io/" class="text-gray-300 hover:text-white text-sm font-medium transition flex items-center space-x-1.5">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Main Hub</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        
+        <!-- HERO TITLE -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-800/60 text-indigo-300 text-xs font-semibold mb-4">
+                <i class="fa-solid fa-bolt text-amber-400"></i>
+                <span>Interactive Legal AI Solutions Suite & Value Selling</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+                Transforming Knowledge Work with <span class="text-indigo-400">Precision AI</span>
+            </h1>
+            <p class="text-gray-400 text-sm sm:text-base">
+                Explore live interactive modules simulating ingestion, automated due diligence, clause drafting, and cross-border legal research backed by measurable enterprise ROI.
+            </p>
+        </div>
+
+        <!-- MODULE TABS -->
+        <div class="flex justify-center mb-8 overflow-x-auto pb-2">
+            <div class="bg-cardBg p-1.5 rounded-xl border border-gray-800 inline-flex space-x-2">
+                <button onclick="switchHarveyTab('ingestion')" id="btn-ingestion" class="harvey-tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition bg-indigo-600 text-white shadow">
+                    <i class="fa-solid fa-file-arrow-up mr-2"></i>Document Ingestion & OCR
+                </button>
+                <button onclick="switchHarveyTab('drafting')" id="btn-drafting" class="harvey-tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-pen-nib mr-2"></i>Clause Drafting & Playbooks
+                </button>
+                <button onclick="switchHarveyTab('diligence')" id="btn-diligence" class="harvey-tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-magnifying-glass-chart mr-2"></i>Automated Due Diligence
+                </button>
+                <button onclick="switchHarveyTab('research')" id="btn-research" class="harvey-tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-book-atlas mr-2"></i>Cross-Border Research
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB PANES CONTAINER -->
+        <div class="bg-cardBg rounded-2xl border border-gray-800 shadow-2xl p-6 sm:p-8 min-h-[500px]">
+            
+            <!-- MODULE 1: INGESTION & OCR -->
+            <div id="pane-ingestion" class="harvey-pane space-y-6">
+                <div class="border-b border-gray-800 pb-4">
+                    <h3 class="text-xl font-bold text-white">Massive Document Ingestion & Contextual OCR</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Simulate secure upload of complex M&A agreements with zero data retention for training.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-6 border-2 border-dashed border-gray-700 hover:border-indigo-500 rounded-2xl p-8 text-center cursor-pointer transition bg-gray-900/50" onclick="simulateIngestion()">
+                        <i class="fa-solid fa-cloud-arrow-up text-4xl text-indigo-400 mb-3"></i>
+                        <h4 class="font-bold text-white text-sm">Drop Enterprise SPA or MSA here</h4>
+                        <p class="text-xs text-gray-500 mt-1">Supports PDF, DOCX up to 500 pages. Click to run sandbox parse.</p>
+                    </div>
+                    <div class="lg:col-span-6 bg-gray-900 border border-gray-800 p-5 rounded-xl space-y-4">
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="text-gray-400 font-semibold">Parser Status:</span>
+                            <span id="ingest-status" class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">Ready</span>
+                        </div>
+                        <pre id="ingest-output" class="bg-black/60 p-3 rounded-lg text-xs text-indigo-300 font-mono overflow-x-auto h-24 border border-gray-800">{
+  "status": "awaiting_upload",
+  "vector_db": "Pinecone_Enterprise_Secure",
+  "encryption": "AES-256 / Zero-Retention"
+}</pre>
+                        <div class="border-t border-gray-800 pt-3 flex items-center justify-between text-xs">
+                            <span class="text-gray-400">Initial Ingestion Time Saved:</span>
+                            <span class="font-bold text-emerald-400">-85% Time to First Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 2: CLAUSE DRAFTING -->
+            <div id="pane-drafting" class="harvey-pane hidden space-y-6">
+                <div class="border-b border-gray-800 pb-4">
+                    <h3 class="text-xl font-bold text-white">AI-Assisted Clause Drafting & Risk Playbooks</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Instantly rewrite liability caps and indemnity sections according to firm standards.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Select Clause Type</label>
+                            <select id="clause-type" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-indigo-500">
+                                <option value="liability">Limitation of Liability & Caps</option>
+                                <option value="indemnity">IP Indemnification & Defense</option>
+                                <option value="termination">Termination for Convenience</option>
+                            </select>
+                        </div>
+                        <button onclick="runDrafting()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg text-sm transition shadow-md shadow-indigo-600/30">
+                            Generate Compliant Clause Variations
+                        </button>
+                        <div class="bg-indigo-950/40 border border-indigo-900/60 p-3 rounded-xl text-xs flex justify-between items-center">
+                            <span class="text-indigo-300">Contract Negotiation Velocity:</span>
+                            <span class="font-bold text-emerald-400">14 Days → 3 Days (-78%)</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl flex flex-col justify-between">
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase font-semibold mb-2">Generated AI Output</span>
+                            <div id="draft-result" class="text-xs text-gray-300 bg-black/40 p-4 rounded-lg border border-gray-800 h-32 overflow-y-auto">
+                                Select a clause type and click generate to view AI variations aligned with corporate risk parameters.
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-800 pt-3 mt-3 flex justify-between text-xs">
+                            <span class="text-gray-400">Playbook Adherence:</span>
+                            <span class="font-bold text-indigo-400">&gt; 98% Compliance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 3: AUTOMATED DUE DILIGENCE -->
+            <div id="pane-diligence" class="harvey-pane hidden space-y-6">
+                <div class="border-b border-gray-800 pb-4">
+                    <h3 class="text-xl font-bold text-white">Automated Due Diligence & Risk Matrix</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Scan virtual data rooms to flag hidden liabilities, change-of-control triggers, and compliance gaps.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-gray-400 uppercase">Data Room Scope</span>
+                            <p class="text-xs text-gray-300">45 Corporate Contracts, 12 Employment Agreements, 8 IP Filings.</p>
+                        </div>
+                        <button onclick="runDiligence()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2.5 rounded text-xs transition shadow-md">
+                            Run Full Audit Scan
+                        </button>
+                    </div>
+                    <div class="lg:col-span-2 bg-gray-900 border border-gray-800 p-4 rounded-xl space-y-3 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-2">
+                                <span class="font-bold text-gray-300 uppercase">Flagged Risks & Telemetry</span>
+                                <span id="diligence-badge" class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">Pending Scan</span>
+                            </div>
+                            <pre id="diligence-output" class="bg-black/60 p-3 rounded-lg text-xs text-emerald-300 font-mono overflow-x-auto h-24 border border-gray-800">{
+  "audit_status": "idle",
+  "flags_detected": 0
+}</pre>
+                        </div>
+                        <div class="border-t border-gray-800 pt-2 flex items-center justify-between text-xs">
+                            <span class="text-gray-400">Annual Value Unlocked (Capacity):</span>
+                            <span id="metric-annual-value" class="font-bold text-emerald-400">€1,536,000 (400 hrs/mo saved)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 4: CROSS-BORDER RESEARCH -->
+            <div id="pane-research" class="harvey-pane hidden space-y-6">
+                <div class="border-b border-gray-800 pb-4">
+                    <h3 class="text-xl font-bold text-white">Cross-Border Legal Research & Precedent Search</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Semantic cross-jurisdiction analysis linking EU directives, Spanish commercial law, and case precedents.</p>
+                </div>
+                <div class="space-y-4 max-w-3xl mx-auto">
+                    <div class="flex space-x-2">
+                        <input type="text" id="research-query" placeholder="e.g., GDPR enforcement impact on cross-border M&A data transfer..." class="flex-grow bg-gray-900 border border-gray-700 rounded-lg px-4 py-2.5 text-white text-xs focus:outline-none focus:border-indigo-500">
+                        <button onclick="runResearch()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-5 py-2.5 rounded-lg text-xs transition">
+                            Search Precedents
+                        </button>
+                    </div>
+                    <div id="research-results" class="bg-gray-900 border border-gray-800 p-4 rounded-xl text-xs text-gray-300 min-h-[90px]">
+                        Enter a legal research prompt to simulate multi-jurisdictional AI vector retrieval.
+                    </div>
+                    <div class="bg-black/40 border border-gray-800 p-3 rounded-xl flex items-center justify-between text-xs">
+                        <span class="text-gray-400">Client Proposal Response Time:</span>
+                        <span class="font-bold text-indigo-400">Hours → Minutes (High RFP Conversion)</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-800 bg-cardBg py-6 text-center text-gray-500 text-xs">
+        <p>© 2026 Harvey Enterprise PoC Simulator. Designed for Technical Sales Leadership.</p>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        function switchHarveyTab(tabName) {
+            document.querySelectorAll('.harvey-pane').forEach(pane => pane.classList.add('hidden'));
+            document.querySelectorAll('.harvey-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white', 'shadow');
+                btn.classList.add('text-gray-400');
+            });
+
+            document.getElementById('pane-' + tabName).classList.remove('hidden');
+            document.getElementById('btn-' + tabName).classList.add('bg-indigo-600', 'text-white', 'shadow');
+            document.getElementById('btn-' + tabName).classList.remove('text-gray-400');
+        }
+
+        function simulateIngestion() {
+            document.getElementById('ingest-status').innerText = 'Parsing...';
+            document.getElementById('ingest-status').className = 'px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800';
+
+            setTimeout(() => {
+                document.getElementById('ingest-status').innerText = 'Secured & Indexed';
+                document.getElementById('ingest-status').className = 'px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800';
+                
+                const res = {
+                    file: "Enterprise_SPA_Acquisition_v4.pdf",
+                    pages: 142,
+                    vector_chunks: 1280,
+                    extraction_time_sec: 1.14,
+                    security_audit: "passed (zero-retention active)"
+                };
+                document.getElementById('ingest-output').innerText = JSON.stringify(res, null, 2);
+            }, 600);
+        }
+
+        function runDrafting() {
+            const type = document.getElementById('clause-type').value;
+            const container = document.getElementById('draft-result');
+            
+            container.innerHTML = '<span class="text-amber-400">Synthesizing firm playbooks...</span>';
+
+            setTimeout(() => {
+                if(type === 'liability') {
+                    container.innerHTML = '<strong>Generated Variation (Conservative Risk Profile):</strong><br>"Total aggregate liability under this Agreement shall in no event exceed 100% of the total fees paid by Customer in the preceding twelve (12) month period, excluding breaches of confidentiality or IP infringement."';
+                } else if(type === 'indemnity') {
+                    container.innerHTML = '<strong>Generated Variation (IP Defense Focus):</strong><br>"Provider shall defend, indemnify, and hold harmless Customer from any third-party claim alleging that the SaaS platform infringes any valid patent, copyright, or trade secret."';
+                } else {
+                    container.innerHTML = '<strong>Generated Variation (Convenience & Notice):</strong><br>"Either party may terminate this Agreement for convenience upon providing sixty (60) days prior written notice, with a pro-rata refund of prepaid unearned fees."';
+                }
+            }, 400);
+        }
+
+        function runDiligence() {
+            const badge = document.getElementById('diligence-badge');
+            badge.innerText = 'Analyzing VDR...';
+            badge.className = 'px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800';
+
+            setTimeout(() => {
+                badge.innerText = '3 High-Risk Flags Found';
+                badge.className = 'px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800';
+
+                const audit = {
+                    status: "complete",
+                    documents_scanned: 65,
+                    flags_detected: 3,
+                    critical_issues: [
+                        "Section 12.4: Change of control restriction in key vendor agreement",
+                        "Section 8.1: Unilateral termination clause without cure period",
+                        "Section 15: Non-standard governing law (Third-party jurisdiction)"
+                    ]
+                };
+                document.getElementById('diligence-output').innerText = JSON.stringify(audit, null, 2);
+            }, 500);
+        }
+
+        function runResearch() {
+            const query = document.getElementById('research-query').value;
+            const resContainer = document.getElementById('research-results');
+            if(!query) return;
+
+            resContainer.innerHTML = '<span class="text-indigo-400">Querying multi-jurisdictional vector database...</span>';
+
+            setTimeout(() => {
+                resContainer.innerHTML = `<strong>AI Synthesis for:</strong> "${query}"<br><br>
+                <em>Precedent Match (EU Commercial Law / Spanish Commercial Registry):</em><br>
+                Cross-border data transfers comply with EU Standard Contractual Clauses (SCCs). Recent Supreme Court rulings require explicit technical supplementary measures for encrypted legal repositories.`;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
